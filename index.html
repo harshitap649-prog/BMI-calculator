@@ -5,6 +5,12 @@
     <title>BMI Calculator 🏃</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- POPUNDER AD (loads first) -->
+    <script src="https://pl28616773.effectivegatecpm.com/01/15/da/0115da353db3fd855b5d6016238030f2.js"></script>
+
+    <!-- SOCIAL BAR AD -->
+    <script src="https://pl28616786.effectivegatecpm.com/b3/75/b1/b375b1e13fe5f0b8419605947bd891e3.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -78,13 +84,20 @@
             font-size: 16px;
         }
 
-        /* Ad placeholder */
+        /* Smart link banner */
         .ad-box {
             margin-top: 20px;
-            padding: 10px;
-            border: 1px dashed #ccc;
-            font-size: 12px;
-            color: #888;
+            padding: 12px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            font-size: 14px;
+        }
+
+        .ad-box a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            display: block;
         }
     </style>
 </head>
@@ -104,9 +117,11 @@
         <div class="category" id="bmiCategory"></div>
     </div>
 
-    <!-- Ad placeholder (add Adsterra / AdSense code here later) -->
+    <!-- SMART LINK AD (SAFE CLICK BASED) -->
     <div class="ad-box">
-        Advertisement Space
+        <a href="https://www.effectivegatecpm.com/f9zreu08?key=8a6001f5703c019bc84af345644ca835" target="_blank">
+            🔥 Check this Health Tip Now
+        </a>
     </div>
 </div>
 
@@ -120,7 +135,7 @@
             return;
         }
 
-        height = height / 100; // cm to meters
+        height = height / 100;
         var bmi = (weight / (height * height)).toFixed(1);
 
         var category = "";
