@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator 🏃</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #56ab2f, #a8e063);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 90%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2e7d32;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1b5e20;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .bmi-value {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .category {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* Ad placeholder */
+        .ad-box {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BMI Calculator 🏃</h1>
+    <p>Check your Body Mass Index instantly</p>
+
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result">
+        <div class="bmi-value" id="bmiValue"></div>
+        <div class="category" id="bmiCategory"></div>
+    </div>
+
+    <!-- Ad placeholder (add Adsterra / AdSense code here later) -->
+    <div class="ad-box">
+        Advertisement Space
+    </div>
+</div>
+
+<script>
+    function calculateBMI() {
+        var weight = document.getElementById("weight").value;
+        var height = document.getElementById("height").value;
+
+        if (weight === "" || height === "" || weight <= 0 || height <= 0) {
+            alert("Please enter valid height and weight");
+            return;
+        }
+
+        height = height / 100; // cm to meters
+        var bmi = (weight / (height * height)).toFixed(1);
+
+        var category = "";
+        var bgColor = "";
+
+        if (bmi < 18.5) {
+            category = "Underweight";
+            bgColor = "#ffeb3b";
+        } else if (bmi < 25) {
+            category = "Normal weight";
+            bgColor = "#8bc34a";
+        } else if (bmi < 30) {
+            category = "Overweight";
+            bgColor = "#ff9800";
+        } else {
+            category = "Obese";
+            bgColor = "#f44336";
+        }
+
+        var resultBox = document.getElementById("result");
+        resultBox.style.display = "block";
+        resultBox.style.background = bgColor;
+
+        document.getElementById("bmiValue").innerText = "Your BMI: " + bmi;
+        document.getElementById("bmiCategory").innerText = category;
+    }
+</script>
+
+</body>
+</html>
